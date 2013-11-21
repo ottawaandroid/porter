@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/App/App.iml" filepath="$PROJECT_DIR$/App/App.iml" />
       <module fileurl="file://$PROJECT_DIR$/OttawaAndroidDoorOpener.iml" filepath="$PROJECT_DIR$/OttawaAndroidDoorOpener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/porter.iml" filepath="$PROJECT_DIR$/porter.iml" />
     </modules>
   </component>
 </project>

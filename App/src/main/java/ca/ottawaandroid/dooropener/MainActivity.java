@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
+
 public class MainActivity extends Activity implements ActionBar.OnNavigationListener {
 
     /**
@@ -27,6 +31,14 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // start up Parse
+        // TODO create a base class that has this in there
+        Parse.initialize(this, "YOUR_APP_ID", "YOUR_CLIENT_KEY");
+
+        // we are ready for push notifications
+        PushService.setDefaultPushCallback(this, MainActivity.class);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
 
         // Set up the action bar to show a dropdown list.
         final ActionBar actionBar = getActionBar();
