@@ -3,10 +3,7 @@ package ca.ottawaandroid.dooropener;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +40,6 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
                         new String[] {
                                 getString(R.string.title_section1),
                                 getString(R.string.title_section2),
-                                getString(R.string.title_section3),
                         }),
                 this);
     }
@@ -87,11 +83,19 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
 
     @Override
     public boolean onNavigationItemSelected(int position, long id) {
+        Fragment fragment = null;
+        switch (position) {
+            case 0:
+                fragment = KnockFragment.newInstance();
+                break;
+            case 1:
+                fragment = PlaceholderFragment.newInstance(position + 1);
+                break;
+        }
+
         // When the given dropdown item is selected, show its contents in the
         // container view.
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
         return true;
     }
 
