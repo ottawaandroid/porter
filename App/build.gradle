@@ -24,18 +24,28 @@ android {
         minSdkVersion 16
         targetSdkVersion 19
     }
+
     buildTypes {
         release {
             runProguard true
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
         }
     }
+
     productFlavors {
+
         defaultFlavor {
             proguardFile 'proguard-rules.txt'
+
+            // check if the parse properties file exists
+            Properties props = new Properties()
+            file('parse.properties').withInputStream {
+                stream -> props.load(stream)
+            }
+            println 'parse.application_id: ' + props.getProperty('application_id')
+            println 'parse.client_key: ' + props.getProperty('client_key')
+            buildConfig 'public static final String PARSE_APPLICATION_ID = "' + props.getProperty('application_id', '') + '";', \
+                        'public static final String PARSE_CLIENT_KEY = "' + props.getProperty('client_key', '') + '";'
         }
     }
-}
-
-dependencies {
 }

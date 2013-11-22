@@ -30,8 +30,8 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
         setContentView(R.layout.activity_main);
 
         // start up Parse
-        // TODO create a base class that has this in there
-        Parse.initialize(this, "YOUR_APP_ID", "YOUR_CLIENT_KEY");
+        // TODO create a base class that has this in there?
+        Parse.initialize(this, BuildConfig.PARSE_APPLICATION_ID, BuildConfig.PARSE_CLIENT_KEY);
 
         // we are ready for push notifications
         PushService.setDefaultPushCallback(this, MainActivity.class);
