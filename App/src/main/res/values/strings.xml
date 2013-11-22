@@ -2,9 +2,10 @@
 <resources>
 
     <string name="app_name">Ottawa Android Door Opener</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Knock</string>
+    <string name="title_section2">Events</string>
     <string name="action_settings">Settings</string>
+    <string name="btn_knock">Knock on Door</string>
+    <string name="open_door_instructions">Request an unlock above. The Chaperone will unlock the door for you!</string>
 
 </resources>
